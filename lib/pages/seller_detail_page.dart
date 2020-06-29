@@ -105,6 +105,7 @@ class Seller {
   final String name;
   final SellerAddress address;
   final SellerDeliverySchedule schedule;
+  final List<SellerTags> tags;
   final double rating;
 
   const Seller({
@@ -115,6 +116,7 @@ class Seller {
     @required this.name,
     @required this.address,
     @required this.schedule,
+    @required this.tags,
     @required this.rating,
   });
 }
@@ -149,6 +151,18 @@ class SellerDeliverySchedule {
   });
 }
 
+enum SellerTags {
+  fruits,
+  snacks,
+  meats,
+  fishes,
+  veggies,
+  pet,
+  seeds,
+  health,
+  school,
+}
+
 final sellers = [
   Seller(
     createdTime: DateTime.now(),
@@ -169,6 +183,7 @@ final sellers = [
       friday: true,
       saturday: true,
     ),
+    tags: [SellerTags.veggies],
     rating: 5.0,
   ),
   Seller(
@@ -190,6 +205,7 @@ final sellers = [
       friday: true,
       saturday: true,
     ),
+    tags: [SellerTags.veggies],
     rating: 5.0,
   ),
   Seller(
@@ -211,6 +227,7 @@ final sellers = [
       friday: true,
       saturday: true,
     ),
+    tags: [SellerTags.veggies],
     rating: 5.0,
   ),
   Seller(
@@ -232,6 +249,7 @@ final sellers = [
       friday: true,
       saturday: true,
     ),
+    tags: [SellerTags.veggies],
     rating: 5.0,
   ),
   Seller(
@@ -253,6 +271,7 @@ final sellers = [
       friday: true,
       saturday: true,
     ),
+    tags: [SellerTags.veggies],
     rating: 5.0,
   ),
   Seller(
@@ -274,6 +293,7 @@ final sellers = [
       friday: true,
       saturday: true,
     ),
+    tags: [SellerTags.veggies],
     rating: 5.0,
   ),
   Seller(
@@ -295,6 +315,7 @@ final sellers = [
       friday: true,
       saturday: true,
     ),
+    tags: [SellerTags.veggies],
     rating: 5.0,
   ),
   Seller(
@@ -316,6 +337,7 @@ final sellers = [
       friday: true,
       saturday: true,
     ),
+    tags: [SellerTags.veggies],
     rating: 5.0,
   ),
   Seller(
@@ -337,6 +359,7 @@ final sellers = [
       friday: true,
       saturday: true,
     ),
+    tags: [SellerTags.veggies],
     rating: 5.0,
   ),
   Seller(
@@ -358,6 +381,7 @@ final sellers = [
       friday: true,
       saturday: true,
     ),
+    tags: [SellerTags.veggies],
     rating: 5.0,
   ),
   Seller(
@@ -379,6 +403,7 @@ final sellers = [
       friday: true,
       saturday: true,
     ),
+    tags: [SellerTags.veggies],
     rating: 5.0,
   ),
   Seller(
@@ -400,6 +425,29 @@ final sellers = [
       friday: true,
       saturday: true,
     ),
+    tags: [SellerTags.veggies],
+    rating: 5.0,
+  ),
+  Seller(
+    createdTime: DateTime.now(),
+    updatedTime: DateTime.now(),
+    id: '4',
+    imageUrl: 'https://fosteringeducationandenvironmentfordevelopment.files.wordpress.com/2018/03/sustainablepalengkelogo.jpg',
+    name: 'Fruit Wisdom',
+    address: SellerAddress(
+      province: 'Metro Manila',
+      city: 'Quezon City',
+    ),
+    schedule: SellerDeliverySchedule(
+      sunday: true,
+      monday: true,
+      tuesday: true,
+      wednesday: true,
+      thursday: true,
+      friday: true,
+      saturday: true,
+    ),
+    tags: [SellerTags.fruits],
     rating: 5.0,
   ),
 ];

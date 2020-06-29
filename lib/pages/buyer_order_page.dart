@@ -3,8 +3,6 @@ import 'package:fluroapp/pages/seller_detail_page.dart';
 import 'package:fluroapp/pages/seller_order_page.dart';
 import 'package:flutter/material.dart';
 
-import 'order_detail_page.dart';
-
 class BuyerOrderPage extends StatelessWidget {
   static PageRoute<T> route<T>() {
     return MaterialPageRoute(builder: (context) {

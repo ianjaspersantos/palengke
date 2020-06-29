@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fluroapp/pages/checkout_page.dart';
 import 'package:fluroapp/pages/seller_detail_page.dart';
 import 'package:flutter/material.dart';
@@ -141,8 +142,8 @@ class CartItem extends StatelessWidget {
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12.0),
-              child: Image.network(
-                'https://cdn.shopify.com/s/files/1/0024/9695/4415/products/romaine_lettuce_960x.jpg?v=1526788344',
+              child: CachedNetworkImage(
+                imageUrl: 'https://cdn.shopify.com/s/files/1/0024/9695/4415/products/romaine_lettuce_960x.jpg?v=1526788344',
                 width: 80.0,
                 height: 80.0,
                 fit: BoxFit.cover,

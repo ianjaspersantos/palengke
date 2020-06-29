@@ -132,6 +132,11 @@ class SellerOrderPage extends StatelessWidget {
       drawerScrimColor: scrimColor.withOpacity(0.54),
       appBar: appBar,
       drawer: drawer,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: color1,
+        child: Icon(Icons.add),
+      ),
       body: ListView.separated(
         itemCount: 12,
         itemBuilder: (context, index) {

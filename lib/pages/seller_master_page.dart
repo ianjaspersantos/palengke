@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fluroapp/pages/about_page.dart';
 import 'package:fluroapp/pages/buyer_order_page.dart';
 import 'package:fluroapp/pages/cart_page.dart';
@@ -10,7 +11,7 @@ import 'package:fluroapp/pages/terms_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SellerMasterPage extends StatelessWidget {
+class SellerMasterPage extends StatefulWidget {
   static PageRoute<T> route<T>() {
     return MaterialPageRoute(
       settings: RouteSettings(name: 'seller-master-page'),
@@ -18,6 +19,37 @@ class SellerMasterPage extends StatelessWidget {
         return SellerMasterPage();
       },
     );
+  }
+
+  @override
+  _SellerMasterPageState createState() => _SellerMasterPageState();
+}
+
+class _SellerMasterPageState extends State<SellerMasterPage> {
+  int index = 0;
+
+  List<Seller> get items {
+    if (index == 0) {
+      return sellers.where((element) => true).toList();
+    } else if (index == 1) {
+      return sellers.where((element) => element.tags.contains(SellerTags.fruits)).toList();
+    } else if (index == 2) {
+      return sellers.where((element) => element.tags.contains(SellerTags.snacks)).toList();
+    } else if (index == 3) {
+      return sellers.where((element) => element.tags.contains(SellerTags.meats)).toList();
+    } else if (index == 4) {
+      return sellers.where((element) => element.tags.contains(SellerTags.fishes)).toList();
+    } else if (index == 5) {
+      return sellers.where((element) => element.tags.contains(SellerTags.veggies)).toList();
+    } else if (index == 6) {
+      return sellers.where((element) => element.tags.contains(SellerTags.pet)).toList();
+    } else if (index == 7) {
+      return sellers.where((element) => element.tags.contains(SellerTags.seeds)).toList();
+    } else if (index == 8) {
+      return sellers.where((element) => element.tags.contains(SellerTags.health)).toList();
+    } else {
+      return sellers.where((element) => element.tags.contains(SellerTags.school)).toList();
+    }
   }
 
   @override
@@ -44,6 +76,8 @@ class SellerMasterPage extends StatelessWidget {
       child: Row(
         children: [
           NavigationRail(
+            selectedIndex: index,
+            onDestinationSelected: (int index) => setState(() => this.index = index),
             elevation: 1.0,
             backgroundColor: backgroundColor,
             labelType: NavigationRailLabelType.all,
@@ -70,7 +104,7 @@ class SellerMasterPage extends StatelessWidget {
               ),
               NavigationRailDestination(
                 icon: Icon(FontAwesomeIcons.fish),
-                label: Text('Fishes'),
+                label: Text('See'),
               ),
               NavigationRailDestination(
                 icon: Icon(FontAwesomeIcons.carrot),
@@ -93,7 +127,6 @@ class SellerMasterPage extends StatelessWidget {
                 label: Text('School'),
               ),
             ],
-            selectedIndex: 0,
           ),
           VerticalDivider(
             width: 0.0,
@@ -103,9 +136,9 @@ class SellerMasterPage extends StatelessWidget {
           Expanded(
             child: ListView.separated(
               padding: EdgeInsets.all(2.0),
-              itemCount: sellers.length,
+              itemCount: items.length,
               itemBuilder: (context, index) {
-                final seller = sellers.elementAt(index);
+                final seller = items.elementAt(index);
 
                 return AspectRatio(
                   aspectRatio: 2.8 / 1.0,
@@ -310,8 +343,8 @@ class SellerTile extends StatelessWidget {
                         ),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(12.0),
-                          child: Image.network(
-                            '$imageUrl',
+                          child: CachedNetworkImage(
+                            imageUrl: '$imageUrl',
                             alignment: AlignmentDirectional.center,
                             fit: BoxFit.cover,
                           ),

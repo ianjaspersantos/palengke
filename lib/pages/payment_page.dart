@@ -99,7 +99,7 @@ class PaymentPage extends StatelessWidget {
                   height: 56.0,
                   child: Center(
                     child: Text(
-                      'CONTINUE TO PAYMENT',
+                      'CONFIRM ORDER',
                       style: Theme.of(context).textTheme.button.copyWith(color: Colors.white),
                     ),
                   ),
